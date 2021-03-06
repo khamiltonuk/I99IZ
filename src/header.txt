@@ -1,0 +1,3 @@
+maltaV('PACKAGE.name')
+maltaV('PACKAGE.version') (build: __BUILDNUM__)
+size: __SIZE__
