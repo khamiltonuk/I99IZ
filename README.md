@@ -1,4 +1,4 @@
-## i99iz
+## I99IZ
 ---
 Migration plan for a huge appication that is using prototype.js (1.7.2)  
 
