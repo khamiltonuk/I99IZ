@@ -78,3 +78,4 @@ Clearly also those must be rewritten and 100% covered (here also _lodash_ could 
 some considerations:  
 - #1 and most of #2 and #3 needs to be done manually, but still the usage translations could be achieved via script.
 - before starting is needed a small analysis to find out what actually is used in our application, so to avoid to write stuff that will never be used.
+- as last step ...after all coverage is done we need to exploit ES5

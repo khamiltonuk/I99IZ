@@ -69,6 +69,12 @@ all go to `NS[constructor][function]`
 - [ ] Object
 - [ ] RegExp
 - [ ] String
+    - [x] interpret
+    - [x] blank
+    - [x] camelize
+    - [x] calitapize
+    - [x] dasherize
+    - [x] empty
 
 ---
 

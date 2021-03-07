@@ -1,8 +1,8 @@
 'use strict';
 /*
 siggi
-0.0.0 (build: 27)
-size: ~4.58KB
+0.0.0 (build: 39)
+size: ~5.77KB
 */
 (function(CTX) {
     CTX.I99IZ = {};
@@ -31,6 +31,9 @@ size: ~4.58KB
     */
     NS.Array = (function () {
         
+        return {
+            from: NS.$A
+        }
     })();
     /*
     [Malta] protos/Date.js
@@ -72,7 +75,42 @@ size: ~4.58KB
     [Malta] protos/String.js
     */
     NS.String = (function () {
-        
+        // TODO: original version
+        function interpret(str) {
+            return str == null ? '' : String(str); 
+        }
+        // TODO: original version
+        function blank(str) {
+            return /^\s*$/.test(str);
+        }
+        // TODO: original version
+        function camelize(str) {
+            return str.replace(/-+(.)?/g, function(_, chr) {
+                return chr ? chr.toUpperCase() : '';
+            });
+        }
+    
+        // TODO: original version
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
+        }
+        // TODO: original version
+        function dasherize(str) {
+            return str.replace(/_/g, '-');
+        }
+        // TODO: original version
+        function empty(str) {
+            // not being triple here allows new String('') to return true here
+            return str == '';
+        }
+        return  {
+            interpret: interpret,
+            blank: blank,
+            camelize: camelize,
+            capitalize: capitalize,
+            dasherize: dasherize
+            empty: empty
+        }
     })();
     /*
     [Malta] funcs/require.js
@@ -98,8 +136,10 @@ size: ~4.58KB
     /*
     [Malta] funcs/$A.js
     */
-    NS.$A = function (sel) {
-        return document.getEelementById(sel)
+    NS.$A = function (iterable) {
+        if (!iterable) return [];
+        // if 
+        // SUSPENDED: uses String.toArray
     }
     /*
     [Malta] funcs/$H.js

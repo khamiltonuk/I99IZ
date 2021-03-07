@@ -1,3 +1,5 @@
-NS.$A = function (sel) {
-    return document.getEelementById(sel)
+NS.$A = function (iterable) {
+    if (!iterable) return [];
+    // if 
+    // SUSPENDED: uses String.toArray
 }
