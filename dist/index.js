@@ -1,7 +1,7 @@
 'use strict';
 /*
 siggi
-0.0.0 (build: 85)
+0.0.0 (build: 86)
 size: ~1.36KB
 */
 !function(e){var t={ScriptFragment:"<script[^>]*>([\\S\\s]*?)</script\\s*>",JSONFilter:/^\/\*-secure-([\s\S]*)\*\/\s*$/,emptyFunction:function(){},K:function(e){return e}};e.Siggi=t,e.p={};var n=e.p;!function(){function e(e,t){for(var n in t)e[n]=t[n];return e}}();t.Browser=function(){var e=navigator.userAgent,t=window.opera&&"[object Opera]"==opera.toString();return{IE:!!window.attachEvent&&!t,opera:t,WebKit:e.indexOf("AppleWebKit/")>-1,Gecko:e.indexOf("Gecko")>-1&&-1===e.indexOf("KHTML"),MobileSafari:/Apple.*Mobile/.test(e)}}(),t.BrowserFeatures={XPath:!!document.evaluate,SelectorsAPI:!!document.querySelector,ElementExtensions:function(){var e=window.Element||window.HTMLElement;return!(!e||!e.prototype)}(),SpecificElementExtensions:function(){if(void 0!==window.HTMLDivElement)return!0;var e=document.createElement("div"),t=document.createElement("form"),n=!1;return e.__proto__&&e.__proto__!==t.__proto__&&(n=!0),e=t=null,n}()},t.Selector={},n.Object={},e.$=function(e){return document.getEelementById(e)},e.$$=function(e){return document.getEelementById(e)},e.$F=function(e){return document.getEelementById(e)},e.$A=function(e){return document.getEelementById(e)},e.$H=function(e){return document.getEelementById(e)},e.$R=function(e){return document.getEelementById(e)},e.$w=function(e){return document.getEelementById(e)}}(this);
