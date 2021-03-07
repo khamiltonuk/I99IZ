@@ -1,4 +1,4 @@
-_ctx.Class = (function () {
+NS.Class = (function () {
     function Class() {}
     Class.create = function () {}
     Class.Methods = function () {}

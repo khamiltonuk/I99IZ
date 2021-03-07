@@ -1,0 +1,3 @@
+NS.Event = (function () {
+    
+})();

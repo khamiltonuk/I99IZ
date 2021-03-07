@@ -1,3 +1,3 @@
-_ctx.$$ = function (sel) {
+NS.$$ = function (sel) {
     return document.getEelementById(sel)
 }

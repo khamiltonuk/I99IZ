@@ -77,6 +77,10 @@ all go to `NS[constructor][function]`
 The final result then will be structured like follows:
 ``` javascript
 NS = {
+    Prototype: {
+        Selector,
+        
+    },
     Array: {/* all functions */},
     Date: {/* all functions */},
     Element: {/* all functions */},

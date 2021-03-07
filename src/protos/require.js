@@ -1,0 +1,8 @@
+maltaF('protos/Array.js')
+maltaF('protos/Date.js')
+maltaF('protos/Element.js')
+maltaF('protos/Event.js')
+maltaF('protos/Number.js')
+maltaF('protos/Object.js')
+maltaF('protos/RegExp.js')
+maltaF('protos/String.js')

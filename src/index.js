@@ -1,10 +1,9 @@
-(function(_ctx) {
-    maltaF('core/index.js');
-    maltaF('funcs/$.js');
-    maltaF('funcs/$$.js');
-    maltaF('funcs/$F.js');
-    maltaF('funcs/$A.js');
-    maltaF('funcs/$H.js');
-    maltaF('funcs/$R.js');
-    maltaF('funcs/$w.js');
+(function(CTX) {
+    CTX.maltaV('LIB') = {};
+    var NS = CTX.maltaV('LIB');
+    maltaF('core/shared.js')
+    maltaF('protos/require.js')
+    maltaF('funcs/require.js')
+    maltaF('objects/require.js')
+    maltaF('BOM/require.js')
 })(this);

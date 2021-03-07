@@ -1,4 +1,4 @@
-LIB.BrowserFeatures = {
+NS.Prototype.BrowserFeatures = {
     XPath: !!document.evaluate,
     SelectorsAPI: !!document.querySelector,
     ElementExtensions: (function() {

@@ -1,4 +1,4 @@
-_ctx.Hash = (function () {
+NS.Hash = (function () {
     function Hash() {}
     Hash.create = function () {}
     Hash.Methods = function () {}

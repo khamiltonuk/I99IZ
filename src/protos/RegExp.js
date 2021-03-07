@@ -1,0 +1,3 @@
+NS.RegExp = (function () {
+    
+})();

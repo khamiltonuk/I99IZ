@@ -1,0 +1,1 @@
+NS.document = {d : 1}

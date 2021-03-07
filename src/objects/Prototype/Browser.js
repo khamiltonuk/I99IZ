@@ -1,4 +1,4 @@
-LIB.Browser = (function (){
+NS.Prototype.Browser = (function (){
     var ua = navigator.userAgent,
         isOpera = window.opera && opera.toString() == "[object Opera]";
     return {
