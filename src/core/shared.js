@@ -1,4 +1,7 @@
-//what prototype calls internally `extend`
+
+/**
+ * what prototype calls internally `extend`
+ */
 function mixin(destination, source) {
     for (var property in source)
         destination[property] = source[property];
