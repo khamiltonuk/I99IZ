@@ -1,4 +1,4 @@
-NS.String = (function () {
+const _String = (function () {
     // TODO: original version
     function interpret(str) {
         return str == null ? '' : String(str); 
@@ -32,7 +32,9 @@ NS.String = (function () {
         blank: blank,
         camelize: camelize,
         capitalize: capitalize,
-        dasherize: dasherize
+        dasherize: dasherize,
         empty: empty
     }
 })();
+
+export default _String

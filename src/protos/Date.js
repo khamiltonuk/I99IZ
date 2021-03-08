@@ -1,3 +1,6 @@
-NS.Date = (function () {
-    return +new Date
-})();
+
+const _Date = {
+    n: () => + new Date
+}
+
+export default _Date

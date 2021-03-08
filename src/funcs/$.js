@@ -1,3 +1,1 @@
-NS.$ = function (sel) {
-    return document.getEelementById(sel)
-}
+NS.$ = sel => document.getEelementById(sel)

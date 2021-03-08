@@ -1,9 +1,14 @@
+
+import vars from './vars'
+import exp from './core/shared.js'
+import protos from './protos/'
+
 (function(CTX) {
-    CTX.maltaV('LIB') = {};
-    var NS = CTX.maltaV('LIB');
-    maltaF('core/shared.js')
-    maltaF('protos/require.js')
-    maltaF('funcs/require.js')
-    maltaF('objects/require.js')
-    maltaF('BOM/require.js')
-})(this);
+    CTX[vars.LIB] = {};
+    const NS = CTX[vars.LIB];
+    exp.mixin(NS, protos)
+
+//     import('./funcs')
+//     import('./objects')
+//     import('./BOM')
+})(window);

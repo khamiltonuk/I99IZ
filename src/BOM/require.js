@@ -1,1 +1,0 @@
-maltaF('BOM/document.js')

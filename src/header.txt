@@ -1,3 +1,2 @@
-maltaV('PACKAGE.name')
-maltaV('PACKAGE.version') (build: __BUILDNUM__)
-size: __SIZE__
+%NAME%
+%VERSION%

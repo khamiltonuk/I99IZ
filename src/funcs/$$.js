@@ -1,3 +1,4 @@
 NS.$$ = function (sel) {
-    return document.getEelementById(sel)
+    const t = {...sel}
+    return t
 }

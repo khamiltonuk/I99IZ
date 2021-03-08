@@ -7,6 +7,6 @@ NS.Prototype = {
 };
 
 
-maltaF('objects/Prototype/Browser.js')
-maltaF('objects/Prototype/BrowserFeatures.js')
-maltaF('objects/Prototype/Selector.js')
+include('./Browser.js')
+include('./BrowserFeatures.js')
+include('./Selector.js')

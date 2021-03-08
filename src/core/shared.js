@@ -1,12 +1,11 @@
+//what prototype calls internally `extend`
+function mixin(destination, source) {
+    for (var property in source)
+        destination[property] = source[property];
+    return destination;
+}
 
-var shared = (function () {
-    function extend(destination, source) {
-        for (var property in source)
-            destination[property] = source[property];
-        return destination;
-    }
-    return {
-        extend: extend
-    }
-})();
 
+export default {
+    mixin
+}
