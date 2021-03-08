@@ -1,3 +1,5 @@
+
+
 const _String = (function () {
     // TODO: original version
     function interpret(str) {
@@ -13,7 +15,6 @@ const _String = (function () {
             return chr ? chr.toUpperCase() : '';
         });
     }
-
     // TODO: original version
     function capitalize(str) {
         return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();

@@ -1,1 +1,4 @@
-import('./document.js')
+import document from './document'
+export default {
+    document
+}

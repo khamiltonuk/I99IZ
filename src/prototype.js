@@ -167,12 +167,12 @@ var Class = (function () {
         NUMBER_TYPE = 'Number',
         STRING_TYPE = 'String',
         OBJECT_TYPE = 'Object',
-        FUNCTION_CLASS = '[object Function]',
+        // FUNCTION_CLASS = '[object Function]',
         BOOLEAN_CLASS = '[object Boolean]',
         NUMBER_CLASS = '[object Number]',
         STRING_CLASS = '[object String]',
         ARRAY_CLASS = '[object Array]',
-        DATE_CLASS = '[object Date]',
+        // DATE_CLASS = '[object Date]',
         NATIVE_JSON_STRINGIFY_SUPPORT = window.JSON &&
             typeof JSON.stringify === 'function' &&
             JSON.stringify(0) === '0' &&
@@ -184,6 +184,7 @@ var Class = (function () {
         'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'constructor'
     ];
 
+    // again ? 
     var IS_DONTENUM_BUGGY = (function () {
         for (var p in {
             toString: 1
@@ -193,6 +194,10 @@ var Class = (function () {
         return true;
     })();
 
+
+    // this is complete madness
+    // USED 2 times only to match OBJECT_TYPE
+    //              translated into isObject
     function Type(o) {
         switch (o) {
             case null:
@@ -211,6 +216,12 @@ var Class = (function () {
         }
         return OBJECT_TYPE;
     }
+
+
+
+
+
+
 
     function extend(destination, source) {
         for (var property in source)
@@ -329,20 +340,20 @@ var Class = (function () {
         return results;
     }
 
-    function values(object) {
-        var results = [];
-        for (var property in object)
-            results.push(object[property]);
-        return results;
-    }
+    // function values(object) {
+    //     var results = [];
+    //     for (var property in object)
+    //         results.push(object[property]);
+    //     return results;
+    // }
 
-    function clone(object) {
-        return extend({}, object);
-    }
+    // function clone(object) {
+    //     return extend({}, object);
+    // }
 
-    function isElement(object) {
-        return !!(object && object.nodeType == 1);
-    }
+    // function isElement(object) {
+    //     return !!(object && object.nodeType == 1);
+    // }
 
     function isArray(object) {
         return _toString.call(object) === ARRAY_CLASS;
@@ -354,29 +365,29 @@ var Class = (function () {
         isArray = Array.isArray;
     }
 
-    function isHash(object) {
-        return object instanceof Hash;
-    }
+    // function isHash(object) {
+    //     return object instanceof Hash;
+    // }
 
-    function isFunction(object) {
-        return _toString.call(object) === FUNCTION_CLASS;
-    }
+    // function isFunction(object) {
+    //     return _toString.call(object) === FUNCTION_CLASS;
+    // }
 
-    function isString(object) {
-        return _toString.call(object) === STRING_CLASS;
-    }
+    // function isString(object) {
+    //     return _toString.call(object) === STRING_CLASS;
+    // }
 
-    function isNumber(object) {
-        return _toString.call(object) === NUMBER_CLASS;
-    }
+    // function isNumber(object) {
+    //     return _toString.call(object) === NUMBER_CLASS;
+    // }
 
-    function isDate(object) {
-        return _toString.call(object) === DATE_CLASS;
-    }
+    // function isDate(object) {
+    //     return _toString.call(object) === DATE_CLASS;
+    // }
 
-    function isUndefined(object) {
-        return typeof object === "undefined";
-    }
+    // function isUndefined(object) {
+    //     return typeof object === "undefined";
+    // }
 
     extend(Object, {
         extend: extend,
@@ -385,16 +396,16 @@ var Class = (function () {
         toQueryString: toQueryString,
         toHTML: toHTML,
         keys: Object.keys || keys,
-        values: values,
-        clone: clone,
-        isElement: isElement,
-        isArray: isArray,
+        // values: values,
+        // clone: clone,
+        // isElement: isElement,
+        // isArray: isArray,
         isHash: isHash,
-        isFunction: isFunction,
-        isString: isString,
-        isNumber: isNumber,
-        isDate: isDate,
-        isUndefined: isUndefined
+        // isFunction: isFunction,
+        // isString: isString,
+        // isNumber: isNumber,
+        // isDate: isDate,
+        // isUndefined: isUndefined
     });
 })();
 

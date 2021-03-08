@@ -1,3 +1,5 @@
-NS.Ajax = (function () {
+const Ajax = (function () {
 
 })();
+
+export default Ajax

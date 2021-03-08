@@ -1,4 +1,4 @@
-NS.Prototype.BrowserFeatures = {
+const BrowserFeatures = {
     XPath: !!document.evaluate,
     SelectorsAPI: !!document.querySelector,
     ElementExtensions: (function() {
@@ -20,3 +20,6 @@ NS.Prototype.BrowserFeatures = {
         return isSupported;
     })()
 };
+export default {
+    BrowserFeatures
+}

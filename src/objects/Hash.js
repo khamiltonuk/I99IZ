@@ -1,6 +1,5 @@
-NS.Hash = (function () {
-    function Hash() {}
-    Hash.create = function () {}
-    Hash.Methods = function () {}
-    return Hash
-})();
+function Hash() {}
+Hash.create = function () {}
+Hash.Methods = function () {}    
+
+export default Hash;

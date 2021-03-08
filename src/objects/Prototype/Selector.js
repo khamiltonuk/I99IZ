@@ -1,3 +1,7 @@
-NS.Prototype.Selector = {};
+const Selector = {};
+
+export default {
+    Selector
+}
 
 

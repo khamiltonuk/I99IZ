@@ -1,1 +1,4 @@
-NS.document = {d : 1}
+const document = (function () {
+    return {d : 1}
+})()
+export default document

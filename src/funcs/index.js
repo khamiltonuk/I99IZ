@@ -1,7 +1,16 @@
-import('./$.js')
-import('./$$.js')
-import('./$F.js')
-import('./$A.js')
-import('./$H.js')
-import('./$R.js')
-import('./$w.js')
+import $ from './$.js'
+import $$ from './$$.js'
+import $A from './$A.js'
+import $F from './$F.js'
+import $H from './$H.js'
+import $R from './$R.js'
+import $w from './$w.js'
+export default {
+    $,
+    $$,
+    $A,
+    $F,
+    $H,
+    $R,
+    $w,
+}

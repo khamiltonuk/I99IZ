@@ -1,1 +1,1 @@
-NS.$ = sel => document.getEelementById(sel)
+export default sel => document.getEelementById(sel)

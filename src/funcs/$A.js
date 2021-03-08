@@ -1,4 +1,4 @@
-NS.$A = function (iterable) {
+export default iterable => {
     if (!iterable) return [];
     // if 
     // SUSPENDED: uses String.toArray

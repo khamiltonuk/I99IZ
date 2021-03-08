@@ -1,6 +1,6 @@
-NS.Prototype.Browser = (function (){
+const Browser = (function (){
     var ua = navigator.userAgent,
-        isOpera = window.opera && opera.toString() == "[object Opera]";
+        isOpera = !!(window.opera && opera.toString() == "[object Opera]");
     return {
         /* opera has both attachEvent / addEventListener
         */
@@ -12,3 +12,5 @@ NS.Prototype.Browser = (function (){
         // we coudl consider to add more: iPad, iPhone */
     };
 })();
+
+export default {Browser}

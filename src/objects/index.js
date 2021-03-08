@@ -1,4 +1,11 @@
-import('./Prototype/index.js')
-import('./Class.js')
-import('./Hash.js')
-import('./Ajax.js')
+import Prototype from './Prototype'
+import Ajax from './Ajax.js'
+import Class from './Class.js'
+import Hash from './Hash.js'
+
+export default {
+    Prototype,
+    Ajax,
+    Class,
+    Hash
+}

@@ -1,3 +1,1 @@
-NS.$R = function (sel) {
-    return document.getEelementById(sel)
-}
+export default sel => document.getEelementById(sel)

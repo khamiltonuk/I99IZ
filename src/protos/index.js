@@ -1,30 +1,22 @@
 
 
-import Array from './Array.js'
-import Date from './Date.js'
-import Element from './Element.js'
-import Event from './Event.js'
-import Number from './Number.js'
-import Object from './Object.js'
-import RegExp from './RegExp.js'
-import String from './String.js'
-
-
+import _Array from './Array.js'
+import _Date from './Date.js'
+import _Element from './Element.js'
+import _Event from './Event.js'
+import _Number from './Number.js'
+import _Object from './Object.js'
+import _RegExp from './RegExp.js'
+import _String from './String.js'
 export default {
-    Array,
-    Date,
-    Element,
-    Event,
-    Number,
-    Object,
-    RegExp,
-    String,
+    p : {
+        Array: _Array,
+        Date: _Date,
+        Element: _Element,
+        Event: _Event,
+        Number: _Number,
+        Object: _Object,
+        RegExp: _RegExp,
+        String: _String,
+    }
 }
-
-// import('./Date.js')
-// import('./Element.js')
-// import('./Event.js')
-// import('./Number.js')
-// import('./Object.js')
-// import('./RegExp.js')
-// import('./String.js')
