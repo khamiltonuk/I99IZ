@@ -70,6 +70,10 @@ const _Object = (function () {
     function isArray(object) {
         return isArray(object);
     }
+    
+    function stringify(object) {
+        return JSON.stringify(object);
+    }
 
     return  {
         clone,
@@ -77,6 +81,7 @@ const _Object = (function () {
         isElement,
         isHash,
         values,
+        toJSON: stringify,
         keys
     }
 })()
