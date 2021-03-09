@@ -159,63 +159,63 @@ var Class = (function () {
 // TODO: Object
 (function () {
 
-    var _toString = Object.prototype.toString,
-        _hasOwnProperty = Object.prototype.hasOwnProperty,
-        NULL_TYPE = 'Null',
-        UNDEFINED_TYPE = 'Undefined',
-        BOOLEAN_TYPE = 'Boolean',
-        NUMBER_TYPE = 'Number',
-        STRING_TYPE = 'String',
-        OBJECT_TYPE = 'Object',
-        // FUNCTION_CLASS = '[object Function]',
-        BOOLEAN_CLASS = '[object Boolean]',
-        NUMBER_CLASS = '[object Number]',
-        STRING_CLASS = '[object String]',
-        ARRAY_CLASS = '[object Array]',
+    // var _toString = Object.prototype.toString,
+    //     _hasOwnProperty = Object.prototype.hasOwnProperty,
+    //     NULL_TYPE = 'Null',
+    //     UNDEFINED_TYPE = 'Undefined',
+    //     BOOLEAN_TYPE = 'Boolean',
+    //     NUMBER_TYPE = 'Number',
+    //     STRING_TYPE = 'String',
+    //     OBJECT_TYPE = 'Object',
+    //     // FUNCTION_CLASS = '[object Function]',
+    //     BOOLEAN_CLASS = '[object Boolean]',
+    //     NUMBER_CLASS = '[object Number]',
+    //     STRING_CLASS = '[object String]',
+    //     ARRAY_CLASS = '[object Array]',
         // DATE_CLASS = '[object Date]',
-        NATIVE_JSON_STRINGIFY_SUPPORT = window.JSON &&
-            typeof JSON.stringify === 'function' &&
-            JSON.stringify(0) === '0' &&
-            typeof JSON.stringify(Prototype.K) === 'undefined';
+        // NATIVE_JSON_STRINGIFY_SUPPORT = window.JSON &&
+        //     typeof JSON.stringify === 'function' &&
+        //     JSON.stringify(0) === '0' &&
+        //     typeof JSON.stringify(Prototype.K) === 'undefined';
 
 
 
-    var DONT_ENUMS = ['toString', 'toLocaleString', 'valueOf',
-        'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'constructor'
-    ];
+    // var DONT_ENUMS = ['toString', 'toLocaleString', 'valueOf',
+    //     'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'constructor'
+    // ];
 
     // again ? 
-    var IS_DONTENUM_BUGGY = (function () {
-        for (var p in {
-            toString: 1
-        }) {
-            if (p === 'toString') return false;
-        }
-        return true;
-    })();
+    // var IS_DONTENUM_BUGGY = (function () {
+    //     for (var p in {
+    //         toString: 1
+    //     }) {
+    //         if (p === 'toString') return false;
+    //     }
+    //     return true;
+    // })();
 
 
     // this is complete madness
     // USED 2 times only to match OBJECT_TYPE
     //              translated into isObject
-    function Type(o) {
-        switch (o) {
-            case null:
-                return NULL_TYPE;
-            case (void 0):
-                return UNDEFINED_TYPE;
-        }
-        var type = typeof o;
-        switch (type) {
-            case 'boolean':
-                return BOOLEAN_TYPE;
-            case 'number':
-                return NUMBER_TYPE;
-            case 'string':
-                return STRING_TYPE;
-        }
-        return OBJECT_TYPE;
-    }
+    // function Type(o) {
+    //     switch (o) {
+    //         case null:
+    //             return NULL_TYPE;
+    //         case (void 0):
+    //             return UNDEFINED_TYPE;
+    //     }
+    //     var type = typeof o;
+    //     switch (type) {
+    //         case 'boolean':
+    //             return BOOLEAN_TYPE;
+    //         case 'number':
+    //             return NUMBER_TYPE;
+    //         case 'string':
+    //             return STRING_TYPE;
+    //     }
+    //     return OBJECT_TYPE;
+    // }
 
 
 
@@ -240,85 +240,85 @@ var Class = (function () {
         }
     }
 
-    function toJSON(value) {
-        return Str('', {
-            '': value
-        }, []);
-    }
+    // function toJSON(value) {
+    //     return Str('', {
+    //         '': value
+    //     }, []);
+    // }
 
-    function Str(key, holder, stack) {
-        var value = holder[key];
-        if (Type(value) === OBJECT_TYPE && typeof value.toJSON === 'function') {
-            value = value.toJSON(key);
-        }
+    // function Str(key, holder, stack) {
+    //     var value = holder[key];
+    //     if (Type(value) === OBJECT_TYPE && typeof value.toJSON === 'function') {
+    //         value = value.toJSON(key);
+    //     }
 
-        var _class = _toString.call(value);
+    //     var _class = _toString.call(value);
 
-        switch (_class) {
-            case NUMBER_CLASS:
-            case BOOLEAN_CLASS:
-            case STRING_CLASS:
-                value = value.valueOf();
-        }
+    //     switch (_class) {
+    //         case NUMBER_CLASS:
+    //         case BOOLEAN_CLASS:
+    //         case STRING_CLASS:
+    //             value = value.valueOf();
+    //     }
 
-        switch (value) {
-            case null:
-                return 'null';
-            case true:
-                return 'true';
-            case false:
-                return 'false';
-        }
+    //     switch (value) {
+    //         case null:
+    //             return 'null';
+    //         case true:
+    //             return 'true';
+    //         case false:
+    //             return 'false';
+    //     }
 
-        var type = typeof value;
-        switch (type) {
-            case 'string':
-                return value.inspect(true);
-            case 'number':
-                return isFinite(value) ? String(value) : 'null';
-            case 'object':
+    //     var type = typeof value;
+    //     switch (type) {
+    //         case 'string':
+    //             return value.inspect(true);
+    //         case 'number':
+    //             return isFinite(value) ? String(value) : 'null';
+    //         case 'object':
 
-                for (var i = 0, length = stack.length; i < length; i++) {
-                    if (stack[i] === value) {
-                        throw new TypeError("Cyclic reference to '" + value + "' in object");
-                    }
-                }
-                stack.push(value);
+    //             for (var i = 0, length = stack.length; i < length; i++) {
+    //                 if (stack[i] === value) {
+    //                     throw new TypeError("Cyclic reference to '" + value + "' in object");
+    //                 }
+    //             }
+    //             stack.push(value);
 
-                var partial = [];
-                if (_class === ARRAY_CLASS) {
-                    for (var i = 0, length = value.length; i < length; i++) {
-                        var str = Str(i, value, stack);
-                        partial.push(typeof str === 'undefined' ? 'null' : str);
-                    }
-                    partial = '[' + partial.join(',') + ']';
-                } else {
-                    var keys = Object.keys(value);
-                    for (var i = 0, length = keys.length; i < length; i++) {
-                        var key = keys[i],
-                            str = Str(key, value, stack);
-                        if (typeof str !== "undefined") {
-                            partial.push(key.inspect(true) + ':' + str);
-                        }
-                    }
-                    partial = '{' + partial.join(',') + '}';
-                }
-                stack.pop();
-                return partial;
-        }
-    }
+    //             var partial = [];
+    //             if (_class === ARRAY_CLASS) {
+    //                 for (var i = 0, length = value.length; i < length; i++) {
+    //                     var str = Str(i, value, stack);
+    //                     partial.push(typeof str === 'undefined' ? 'null' : str);
+    //                 }
+    //                 partial = '[' + partial.join(',') + ']';
+    //             } else {
+    //                 var keys = Object.keys(value);
+    //                 for (var i = 0, length = keys.length; i < length; i++) {
+    //                     var key = keys[i],
+    //                         str = Str(key, value, stack);
+    //                     if (typeof str !== "undefined") {
+    //                         partial.push(key.inspect(true) + ':' + str);
+    //                     }
+    //                 }
+    //                 partial = '{' + partial.join(',') + '}';
+    //             }
+    //             stack.pop();
+    //             return partial;
+    //     }
+    // }
 
-    function stringify(object) {
-        return JSON.stringify(object);
-    }
+    // function stringify(object) {
+    //     return JSON.stringify(object);
+    // }
 
     function toQueryString(object) {
         return $H(object).toQueryString();
     }
 
-    function toHTML(object) {
-        return object && object.toHTML ? object.toHTML() : String.interpret(object);
-    }
+    // function toHTML(object) {
+    //     return object && object.toHTML ? object.toHTML() : String.interpret(object);
+    // }
 
     // function keys(object) {
     //     if (Type(object) !== OBJECT_TYPE) {
@@ -391,16 +391,16 @@ var Class = (function () {
 
     extend(Object, {
         // extend: extend,
-        inspect: inspect,
-        toJSON: NATIVE_JSON_STRINGIFY_SUPPORT ? stringify : toJSON,
+        // inspect: inspect,
+        // toJSON: NATIVE_JSON_STRINGIFY_SUPPORT ? stringify : toJSON,
         toQueryString: toQueryString,
-        toHTML: toHTML,
-        keys: Object.keys || keys,
+        // toHTML: toHTML,
+        // keys: Object.keys || keys,
         // values: values,
         // clone: clone,
         // isElement: isElement,
         // isArray: isArray,
-        isHash: isHash,
+        // isHash: isHash,
         // isFunction: isFunction,
         // isString: isString,
         // isNumber: isNumber,
@@ -1154,14 +1154,14 @@ var Enumerable = (function () {
     };
 })();
 
-function $A(iterable) {
-    if (!iterable) return [];
-    if ('toArray' in Object(iterable)) return iterable.toArray();
-    var length = iterable.length || 0,
-        results = new Array(length);
-    while (length--) results[length] = iterable[length];
-    return results;
-}
+// function $A(iterable) {
+//     if (!iterable) return [];
+//     if ('toArray' in Object(iterable)) return iterable.toArray();
+//     var length = iterable.length || 0,
+//         results = new Array(length);
+//     while (length--) results[length] = iterable[length];
+//     return results;
+// }
 
 
 function $w(string) {

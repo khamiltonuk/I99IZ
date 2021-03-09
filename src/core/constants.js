@@ -1,4 +1,4 @@
-const IS_DONTENUM_BUGGY = (function () {
+export const IS_DONTENUM_BUGGY = (function () {
     for (var p in {
         toString: 1
     }) {

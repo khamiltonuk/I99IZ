@@ -20,6 +20,7 @@ import Hash from './../objects/Hash'
 import exp from './../core/shared'
 import CONSTANTS from './../core/constants'
 import CHECKERS from './../core/checkers'
+import _string from './String'
 
 const { IS_DONTENUM_BUGGY, DONT_ENUMS, } = CONSTANTS
 const  {
@@ -66,10 +67,6 @@ const _Object = (function () {
     function isHash(object) {
         return object instanceof Hash;
     }
-
-    function isArray(object) {
-        return isArray(object);
-    }
     
     function stringify(object) {
         return JSON.stringify(object);
@@ -80,8 +77,10 @@ const _Object = (function () {
         isArray,
         isElement,
         isHash,
+        inspect: o => JSON.stringify(o, null, 2),
         values,
         toJSON: stringify,
+        toHTML: _string.interpret,
         keys
     }
 })()

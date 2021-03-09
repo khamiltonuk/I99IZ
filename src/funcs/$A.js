@@ -1,5 +1,8 @@
 export default iterable => {
     if (!iterable) return [];
-    // if 
-    // SUSPENDED: uses String.toArray
+    if ('toArray' in Object(iterable)) return iterable.toArray();
+    var length = iterable.length || 0,
+        results = new Array(length);
+    while (length--) results[length] = iterable[length];
+    return results;
 }

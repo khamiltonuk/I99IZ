@@ -22,9 +22,9 @@
  * - without
  */
 
+import $A from './../funcs/$A'
 
-const Array = {
-    loop: (a, f) => a.map(f)
+const _Array = {
+    from: $A
 }
-
-export default Array
+export default _Array
