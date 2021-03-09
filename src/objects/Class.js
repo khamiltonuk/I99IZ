@@ -1,5 +1,11 @@
 import { IS_DONTENUM_BUGGY } from './../core/constants'
+import CHECKERS from './../core/checkers'
+import $A from './../funcs/$A'
 
+import SHARED from './../core/shared'
+
+
+// TODO: go on
 const Class = (function () {
 
     function subclass() { };
@@ -7,14 +13,14 @@ const Class = (function () {
     function create() {
         var parent = null,
             properties = $A(arguments);
-        if (Object.isFunction(properties[0]))
+        if (CHECKERS.isFunction(properties[0]))
             parent = properties.shift();
 
         function klass() {
             this.initialize.apply(this, arguments);
         }
 
-        Object.extend(klass, Class.Methods);
+        SHARED.mixin(klass, Class.Methods);
         klass.superclass = parent;
         klass.subclasses = [];
 
@@ -48,7 +54,7 @@ const Class = (function () {
         for (var i = 0, length = properties.length; i < length; i++) {
             var property = properties[i],
                 value = source[property];
-            if (ancestor && Object.isFunction(value) &&
+            if (ancestor && CHECKERS.isFunction(value) &&
                 value.argumentNames()[0] == "$super") {
                 var method = value;
                 value = (function (m) {
