@@ -1,5 +1,9 @@
 import CONSTANTS from './constants'
 
+var hasNativeIsArray = typeof Array.isArray == 'function'
+    && Array.isArray([])
+    && !Array.isArray({});
+
 const { TYPES, CLASS_TYPES } = CONSTANTS,
      _toString = Object.prototype.toString,
     _hasOwnProperty = Object.prototype.hasOwnProperty,
@@ -8,7 +12,7 @@ const { TYPES, CLASS_TYPES } = CONSTANTS,
     isString = el => _toString.call(el) === CLASS_TYPES.STRING_CLASS,
     isBoolean = el => _toString.call(el) === CLASS_TYPES.BOOLEAN_CLASS,
     isNumber = el => _toString.call(el) === CLASS_TYPES.NUMBER_CLASS,
-    isArray = el => _toString.call(el) === CLASS_TYPES.ARRAY_CLASS,
+    isArray = (() => hasNativeIsArray ? Array.isArray : el => _toString.call(el) === CLASS_TYPES.ARRAY_CLASS)(),
     isDate = el => _toString.call(el) === CLASS_TYPES.DATE_CLASS,
     isObject = el => _toString.call(el) === CLASS_TYPES.OBJECT_CLASS,
     isElement = el => !!(el && el.nodeType == 1),

@@ -24,7 +24,9 @@ import CHECKERS from './../core/checkers'
 const { IS_DONTENUM_BUGGY, DONT_ENUMS, } = CONSTANTS
 const  {
     _hasOwnProperty,
-    isObject, isElement
+    isObject,
+    isElement,
+    isArray
 } = CHECKERS
 
 const _Object = (function () {
@@ -65,11 +67,17 @@ const _Object = (function () {
         return object instanceof Hash;
     }
 
+    function isArray(object) {
+        return isArray(object);
+    }
+
     return  {
         clone,
+        isArray,
         isElement,
         isHash,
         values,
+        keys
     }
 })()
 

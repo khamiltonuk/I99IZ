@@ -223,11 +223,11 @@ var Class = (function () {
 
 
 
-    function extend(destination, source) {
-        for (var property in source)
-            destination[property] = source[property];
-        return destination;
-    }
+    // function extend(destination, source) {
+    //     for (var property in source)
+    //         destination[property] = source[property];
+    //     return destination;
+    // }
 
     function inspect(object) {
         try {
@@ -320,25 +320,25 @@ var Class = (function () {
         return object && object.toHTML ? object.toHTML() : String.interpret(object);
     }
 
-    function keys(object) {
-        if (Type(object) !== OBJECT_TYPE) {
-            throw new TypeError();
-        }
-        var results = [];
-        for (var property in object) {
-            if (_hasOwnProperty.call(object, property))
-                results.push(property);
-        }
+    // function keys(object) {
+    //     if (Type(object) !== OBJECT_TYPE) {
+    //         throw new TypeError();
+    //     }
+    //     var results = [];
+    //     for (var property in object) {
+    //         if (_hasOwnProperty.call(object, property))
+    //             results.push(property);
+    //     }
 
-        if (IS_DONTENUM_BUGGY) {
-            for (var i = 0; property = DONT_ENUMS[i]; i++) {
-                if (_hasOwnProperty.call(object, property))
-                    results.push(property);
-            }
-        }
+    //     if (IS_DONTENUM_BUGGY) {
+    //         for (var i = 0; property = DONT_ENUMS[i]; i++) {
+    //             if (_hasOwnProperty.call(object, property))
+    //                 results.push(property);
+    //         }
+    //     }
 
-        return results;
-    }
+    //     return results;
+    // }
 
     // function values(object) {
     //     var results = [];
@@ -355,15 +355,15 @@ var Class = (function () {
     //     return !!(object && object.nodeType == 1);
     // }
 
-    function isArray(object) {
-        return _toString.call(object) === ARRAY_CLASS;
-    }
+    // function isArray(object) {
+    //     return _toString.call(object) === ARRAY_CLASS;
+    // }
 
-    var hasNativeIsArray = (typeof Array.isArray == 'function') && Array.isArray([]) && !Array.isArray({});
+    // var hasNativeIsArray = (typeof Array.isArray == 'function') && Array.isArray([]) && !Array.isArray({});
 
-    if (hasNativeIsArray) {
-        isArray = Array.isArray;
-    }
+    // if (hasNativeIsArray) {
+    //     isArray = Array.isArray;
+    // }
 
     // function isHash(object) {
     //     return object instanceof Hash;
@@ -390,7 +390,7 @@ var Class = (function () {
     // }
 
     extend(Object, {
-        extend: extend,
+        // extend: extend,
         inspect: inspect,
         toJSON: NATIVE_JSON_STRINGIFY_SUPPORT ? stringify : toJSON,
         toQueryString: toQueryString,
