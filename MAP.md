@@ -6,7 +6,7 @@ Global -> named
 all go to `NS`
 
 - [x] $  
-- [ ] $$  
+- [x] $$  
 - [ ] $F
 - [x] $A
 - [ ] $H
