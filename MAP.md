@@ -8,7 +8,7 @@ all go to `NS`
 - [ ] $  
 - [ ] $$  
 - [ ] $F
-- [ ] $A
+- [x] $A
 - [ ] $H
 - [ ] $R
 - [ ] $w
@@ -59,6 +59,7 @@ goes to `NS.document`
 all go to `NS[constructor][function]`
 
 - [ ] Array
+    - [x] from
 - [ ] Date
 - [ ] Element
     - [ ] Layout
@@ -67,6 +68,15 @@ all go to `NS[constructor][function]`
 - [ ] Event
 - [ ] Number
 - [ ] Object
+    - [x] clone
+    - [x] inspect
+    - [x] isArray
+    - [x] isElement
+    - [x] isHash
+    - [x] keys
+    - [x] toHTML
+    - [x] toJSON
+    - [x] values
 - [ ] RegExp
 - [ ] String
     - [x] interpret

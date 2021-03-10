@@ -6,13 +6,13 @@ export const IS_DONTENUM_BUGGY = (function () {
     }
     return true;
 })();
-const DONT_ENUMS = [
+export const DONT_ENUMS = [
     'toString', 'toLocaleString', 'valueOf',
     'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable',
     'constructor'
 ];
 
-const CLASS_TYPES = {
+export const CLASS_TYPES = {
     FUNCTION_CLASS: '[object Function]',
     BOOLEAN_CLASS: '[object Boolean]',
     NUMBER_CLASS: '[object Number]',
@@ -22,7 +22,7 @@ const CLASS_TYPES = {
     OBJECT_CLASS: '[object Object]'
 }
 
-const TYPES = {
+export const TYPES = {
     NULL_TYPE: 'Null',
     UNDEFINED_TYPE: 'Undefined',
     BOOLEAN_TYPE: 'Boolean',

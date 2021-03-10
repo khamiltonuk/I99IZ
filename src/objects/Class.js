@@ -1,11 +1,11 @@
 import { IS_DONTENUM_BUGGY } from './../core/constants'
 import CHECKERS from './../core/checkers'
 import $A from './../funcs/$A'
-
 import SHARED from './../core/shared'
+import Prototype from './../objects/Prototype'
+import _Function from './../protos/Function'
 
-
-// TODO: go on
+// TODO: replacements apart it it might be a good idea to rewrite it
 const Class = (function () {
 
     function subclass() { };
@@ -55,12 +55,16 @@ const Class = (function () {
             var property = properties[i],
                 value = source[property];
             if (ancestor && CHECKERS.isFunction(value) &&
+
+                // PROTO
                 value.argumentNames()[0] == "$super") {
                 var method = value;
                 value = (function (m) {
                     return function () {
                         return ancestor[m].apply(this, arguments);
                     };
+
+                // PROTO
                 })(property).wrap(method);
 
                 value.valueOf = (function (method) {

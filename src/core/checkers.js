@@ -1,11 +1,10 @@
-import CONSTANTS from './constants'
+import { CLASS_TYPES } from './constants'
 
-var hasNativeIsArray = typeof Array.isArray == 'function'
+const hasNativeIsArray = typeof Array.isArray == 'function'
     && Array.isArray([])
     && !Array.isArray({});
 
-const { TYPES, CLASS_TYPES } = CONSTANTS,
-     _toString = Object.prototype.toString,
+export const _toString = Object.prototype.toString,
     _hasOwnProperty = Object.prototype.hasOwnProperty,
     checkType = (el, type) => typeof(el) === type,
     isFunction = el => _toString.call(el) === CLASS_TYPES.FUNCTION_CLASS,

@@ -74,14 +74,14 @@ const _Object = (function () {
 
     return  {
         clone,
+        inspect: o => JSON.stringify(o, null, 2),
         isArray,
         isElement,
         isHash,
-        inspect: o => JSON.stringify(o, null, 2),
-        values,
-        toJSON: stringify,
+        keys,
         toHTML: _string.interpret,
-        keys
+        toJSON: stringify,
+        values,
     }
 })()
 
