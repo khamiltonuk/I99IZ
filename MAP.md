@@ -5,7 +5,7 @@ Global -> named
 
 all go to `NS`
 
-- [ ] $  
+- [x] $  
 - [ ] $$  
 - [ ] $F
 - [x] $A
@@ -60,7 +60,7 @@ all go to `NS[constructor][function]`
 
 - [ ] Array
     - [x] from
-- [ ] Date
+- [x] Date
 - [ ] Element
     - [ ] Layout
     - [ ] Methods
