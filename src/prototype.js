@@ -413,12 +413,12 @@ var Class = (function () {
 Object.extend(Function.prototype, (function () {
     var slice = Array.prototype.slice;
 
-    function update(array, args) {
-        var arrayLength = array.length,
-            length = args.length;
-        while (length--) array[arrayLength + length] = args[length];
-        return array;
-    }
+    // function update(array, args) {
+    //     var arrayLength = array.length,
+    //         length = args.length;
+    //     while (length--) array[arrayLength + length] = args[length];
+    //     return array;
+    // }
 
     function merge(array, args) {
         array = slice.call(array, 0);
@@ -489,13 +489,13 @@ Object.extend(Function.prototype, (function () {
         return this.delay.apply(this, args);
     }
 
-    function wrap(wrapper) {
-        var __method = this;
-        return function () {
-            var a = update([__method.bind(this)], arguments);
-            return wrapper.apply(this, a);
-        }
-    }
+    // function wrap(wrapper) {
+    //     var __method = this;
+    //     return function () {
+    //         var a = update([__method.bind(this)], arguments);
+    //         return wrapper.apply(this, a);
+    //     }
+    // }
 
     function methodize() {
         if (this._methodized) return this._methodized;

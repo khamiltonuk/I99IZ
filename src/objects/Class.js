@@ -54,18 +54,19 @@ const Class = (function () {
         for (var i = 0, length = properties.length; i < length; i++) {
             var property = properties[i],
                 value = source[property];
-            if (ancestor && CHECKERS.isFunction(value) &&
-
-                // PROTO
-                value.argumentNames()[0] == "$super") {
+            if (
+                ancestor
+                && CHECKERS.isFunction(value)
+                && _function.argumentNames(value)[0] == "$super"
+            ) {
                 var method = value;
-                value = (function (m) {
+
+                value = _function.wrap((function (m) {
                     return function () {
                         return ancestor[m].apply(this, arguments);
                     };
 
-                // PROTO
-                })(property).wrap(method);
+                })(property), method);
 
                 value.valueOf = (function (method) {
                     return function () {
@@ -79,6 +80,7 @@ const Class = (function () {
                     };
                 })(method);
             }
+            // this might be a problem cause addMethods add methods to the prototype
             this.prototype[property] = value;
         }
 
