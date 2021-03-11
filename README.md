@@ -79,3 +79,33 @@ some considerations:
 - #1 and most of #2 and #3 needs to be done manually, but still the usage translations could be achieved via script.
 - before starting is needed a small analysis to find out what actually is used in our application, so to avoid to write stuff that will never be used.
 - as last step ...after all coverage is done we need to exploit ES5
+
+
+# starting step
+
+A staring point would be writing tests (using jest) for _prototype.js_ trying to cover each case. This allows us to be confident of our replacement.  But there is a fundamental aspect to consider. Let's image we have 100% covered _prototype.js_ and we have our brand new shining `NS` namespace containing what we want: same behaviour in different namespace, but polluted constructors moved into NS.p (where we have to pass the context, see next section). Now if we load NS instead of _prototype.js_ **all tests will clearly fail**, I know it might look wierd to menton why, but I'll do it anyway: the structure of prototype is no more there, prototypes are no more polluted and the translated method can be found else where. How to solve it? 
+One way could be to write a dual test, one for prototype one for NS, which must check exactly the same things, same cases, they must be specular (strategy pattern could also allow to write a single one).
+
+
+
+## polluted constructor function -> ns.p.constructor.function
+Let's pollute a constructor to see have an example:
+``` javascript
+String.prototype.ucFirst = function () {
+    return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+}
+'hello There'.ucFirst(); // Hello there
+```
+this must become
+``` javascript
+var NS = NS || {};
+NS.String = NS.String || {};
+NS.String.ucFirst = function(ctx) {
+    return ctx.charAt(0).toUpperCase() + ctx.substring(1).toLowerCase()
+};
+NS.String.ucFirst('hello There');
+```
+so here the translation would be `"string".ucFirst()` to `NS.String.ucFirst("String")`, easy enough. Dont celebrate... this is really the easiest one 🗡️
+
+
+
