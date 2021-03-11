@@ -89,7 +89,7 @@ One way could be to write a dual test, one for prototype one for NS, which must 
 
 
 ## polluted constructor function -> ns.p.constructor.function
-Let's pollute a constructor to see have an example:
+Let's pollute a constructor to have an example:
 ``` javascript
 String.prototype.ucFirst = function () {
     return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
