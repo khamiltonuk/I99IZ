@@ -4,12 +4,15 @@ import Selector from './Selector'
 import { mixin } from './../../core/shared'
 import pkg from './../../../package.json'
 
+
+export const K = x => x ,
+export const emptyFunction = () => {},
 const Prototype =  {
     ScriptFragment: '<script[^>]*>([\\S\\s]*?)<\/script\\s*>',
     JSONFilter: /^\/\*-secure-([\s\S]*)\*\/\s*$/,
-    emptyFunction: function() { },
-    K: function(x) { return x },
-    Version: pkg.version
+    Version: pkg.version,
+    emptyFunction,
+    K,
 };
 mixin(Prototype, Browser)
 mixin(Prototype, BrowserFeatures)

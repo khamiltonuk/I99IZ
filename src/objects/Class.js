@@ -2,7 +2,7 @@ import { IS_DONTENUM_BUGGY } from './../core/constants'
 import {isFunction} from './../core/checkers'
 import $A from './../funcs/$A'
 import { mixin } from './../core/shared'
-import Prototype from './../objects/Prototype'
+import Prototype, { emptyFunction } from './../objects/Prototype'
 import _Function from './../protos/Function'
 
 // TODO: replacements apart it it might be a good idea to rewrite it
@@ -34,7 +34,7 @@ var Class = (function() {
             klass.addMethods(properties[i]);
 
         if (!klass.prototype.initialize)
-            klass.prototype.initialize = Prototype.emptyFunction;
+            klass.prototype.initialize = emptyFunction;
 
         klass.prototype.constructor = klass;
         return klass;
