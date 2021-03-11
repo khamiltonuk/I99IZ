@@ -81,7 +81,10 @@ some considerations:
 - as last step ...after all coverage is done we need to exploit ES5
 
 
-# starting step
+## The heavy-lift
+The heavy part here comes when NS is ready, the migration of potentially GB of code needs to be managed in the most correct, un-human, fast possible way. Keep in mind that this process can be fully automated. ... **wip** ...
+
+# Starting step
 
 A staring point would be writing tests (using jest) for _prototype.js_ trying to cover each case. This allows us to be confident of our replacement.  But there is a fundamental aspect to consider. Let's image we have 100% covered _prototype.js_ and we have our brand new shining `NS` namespace containing what we want: same behaviour in different namespace, but polluted constructors moved into NS.p (where we have to pass the context, see next section). Now if we load NS instead of _prototype.js_ **all tests will clearly fail**, I know it might look wierd to menton why, but I'll do it anyway: the structure of prototype is no more there, prototypes are no more polluted and the translated method can be found else where. How to solve it? 
 One way could be to write a dual test, one for prototype one for NS, which must check exactly the same things, same cases, they must be specular (strategy pattern could also allow to write a single one).
