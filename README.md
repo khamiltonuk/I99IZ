@@ -1,6 +1,6 @@
 ## I99IZ
 ---
-Migration plan for a huge appication that is using prototype.js (1.7.2)  
+Migration plan for a huge appication that is using **_prototype.js_** (1.7.X)  
 
 The **goal** is to free the application from prototype.js
 
