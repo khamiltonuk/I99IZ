@@ -98,12 +98,12 @@ String.prototype.ucFirst = function () {
 ```
 this must become
 ``` javascript
-var NS = NS || {};
-NS.String = NS.String || {};
-NS.String.ucFirst = function(ctx) {
+var NS = NS || { p: {}};
+NS.p.String = NS.p.String || {};
+NS.p.String.ucFirst = function(ctx) {
     return ctx.charAt(0).toUpperCase() + ctx.substring(1).toLowerCase()
 };
-NS.String.ucFirst('hello There');
+NS.p.String.ucFirst('hello There');
 ```
 so here the translation would be `"string".ucFirst()` to `NS.String.ucFirst("String")`, easy enough. Dont celebrate... this is really the easiest one 🗡️
 
