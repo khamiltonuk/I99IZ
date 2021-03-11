@@ -56,7 +56,7 @@ goes to `NS.document`
 
 ## prototype pollution
 
-all go to `NS[constructor][function]`
+all go to `NS.p[constructor][function]`
 
 - [ ] Array
     - [x] from
@@ -97,15 +97,16 @@ NS = {
         Selector,
         
     },
-    Array: {/* all functions */},
-    Date: {/* all functions */},
-    Element: {/* all functions */},
-    Event: {/* all functions */},
-    Number: {/* all functions */},
-    Object: {/* all functions */},
-    RexExp: {/* all functions */},
-    String: {/* all functions */},
-
+    p : {
+        Array: {/* all functions */},
+        Date: {/* all functions */},
+        Element: {/* all functions */},
+        Event: {/* all functions */},
+        Number: {/* all functions */},
+        Object: {/* all functions */},
+        RexExp: {/* all functions */},
+        String: {/* all functions */},
+    },
     document: {
         viewport: Object,
         loaded: Bool,
